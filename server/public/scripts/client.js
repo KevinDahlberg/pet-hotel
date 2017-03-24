@@ -21,11 +21,12 @@ $(function(){
     for (var i = 0; i < pets.length; i++) {
       $('#pets').append('<tr>');
       var $el = $('#pets').children().last();
-      $el.append('<td>' + pets.owner + '</td>');
-      $el.append('<td>' + pets.name + '</td>');
-      $el.append('<td>' + pets.breed + '</td>');
-      $el.append('<td>' + pets.color + '</td>');
-      $el.append('<td>' + pets.type + '</td>');
+      $el.append('<td>' + pets[i].first_name + '</td>');
+      $el.append('<td>' + pets[i].last_name + '</td>');
+      // $el.append('<td>' + pets.name + '</td>');
+      // $el.append('<td>' + pets.breed + '</td>');
+      // $el.append('<td>' + pets.color + '</td>');
+      // $el.append('<td>' + pets.type + '</td>');
     }// end for loop
   }; // end displayPets
 
