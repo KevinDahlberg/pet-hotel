@@ -24,6 +24,7 @@ $(function(){
       $el.append('<td>' + pets.owner + '</td>');
       $el.append('<td>' + pets.name + '</td>');
       $el.append('<td>' + pets.breed + '</td>');
+      $el.append('<td>' + pets.color + '</td>');
       $el.append('<td>' + pets.type + '</td>');
     }// end for loop
   }; // end displayPets
@@ -116,4 +117,5 @@ $(function(){
     });
   }; // end createOwner
 
+getPets();
 });
