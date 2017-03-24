@@ -21,7 +21,6 @@ $(function(){
     for (var i = 0; i < pets.length; i++) {
       $('#pets').append('<tr>');
       var $el = $('#pets').children().last();
-      $el.append('<td>' + pets.id + '</td>');
       $el.append('<td>' + pets.owner + '</td>');
       $el.append('<td>' + pets.name + '</td>');
       $el.append('<td>' + pets.breed + '</td>');
