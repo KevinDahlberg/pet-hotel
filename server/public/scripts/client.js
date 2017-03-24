@@ -1,12 +1,37 @@
 $(function(){
   console.log("Team Awesome Sourced");
+  //populates owners
+  getOwners();
 
-  var getPets = function (){
+//function to populate owners in input field
+  function getOwners (){
     //insert get function for getting pets and posting them to the DOM
     console.log("Get owners Function");
     $.ajax({
       type: 'GET',
       url: '/owners',
+      success: function(response){
+        console.log('back from pet database with: ', response);
+        //display inventory to DOM
+        displayOwners(response);
+      } //end success function
+    }); // end ajax function
+  } //end getOwners
+
+  //function to display owners
+  var displayOwners = function (owners){
+    for (var i = 0; i < owners.length; i++) {
+      console.log(owners[i]);
+    }
+  };
+
+  //get route for pets
+  var getPets = function (){
+    //insert get function for getting pets and posting them to the DOM
+    console.log("Get pets Function");
+    $.ajax({
+      type: 'GET',
+      url: '/pets',
       success: function(response){
         console.log('back from pet database with: ', response);
         //display inventory to DOM
@@ -23,6 +48,8 @@ $(function(){
       var $el = $('#pets').children().last();
       $el.append('<td>' + pets[i].first_name + '</td>');
       $el.append('<td>' + pets[i].last_name + '</td>');
+      $el.append('<td><button id=checkIn>Check In</button>');
+      $el.append('<td><button id=checkOut>Check Out</button>');
       // $el.append('<td>' + pets.name + '</td>');
       // $el.append('<td>' + pets.breed + '</td>');
       // $el.append('<td>' + pets.color + '</td>');
@@ -30,25 +57,29 @@ $(function(){
     }// end for loop
   }; // end displayPets
 
-  //function to check in and check out pets
-  var checkInPets = function (){
-    //request for checking in pets
-    $.ajax({
-      type: "PUT",
-      url: "",
-      data: "",
-      success: function (response){
-        getPets();
-      }
-    });// end ajax
-  };
+  //function to check in pets
+    $('#checkIn').on("click", function (){
+      console.log("check in button clicked");
+      var checkInDate = new Date();
+      $.ajax({
+        type: "POST",
+        url: "/pets/checkIn",
+        data: {id:pet.id, date:checkInDate},
+        success: function (response){
+          console.log("check in received");
+          getPets();
+        }
+      });// end ajax
+    }); //end request for checking in pets
 
+  // and check out
   //function to check out pets
   var checkOutPets = function (){
     //request for checking Out pets
+    var checkOutDate = new Date();
     $.ajax({
       type: "PUT",
-      url: "",
+      url: "/pets/checkOut",
       data: "",
       success: function (response){
         getPets();
@@ -61,7 +92,7 @@ $(function(){
     //PUT request for updating pets
     $.ajax({
       type: "PUT",
-      url: "",
+      url: "/pets/change",
       data: "",
       success: function (response){
         getPets();
@@ -70,24 +101,26 @@ $(function(){
   }; //end updatePets
 
   //function to remove pets
-  var removePet = function (){
-    //DELETE request for deleting pets
+  //DELETE request for deleting pets
+  $('#books').on('click', '.delete', function(){
+    console.log('Delete pet' + $(this).data('pet'));
+    var petId = $(this).data('pet');
     $.ajax({
       type: "DELETE",
-      url: "" + petID + "/",
+      url: "/pets/delete/" + petId + "/",
       success: function (){
         console.log("in delete pets path");
         getPets();
       }
     });//end ajax
-  }; //end removePet
+  }); //end removePet
 
   //function to create pets
   var createPet = function (){
     //POST request for adding pets to the DB
     $.ajax({
       type: 'POST',
-      url: '',
+      url: '/pets/create',
       data: objectToSend,
       success: function (response){
         if (response === 'OK'){
@@ -100,23 +133,21 @@ $(function(){
     });
   }; // end createPet
 
-  //function to create owner
-  var createOwner = function (){
+    //function to create owner
     //POST request for adding owners to the DB
-    $.ajax({
-      type: 'POST',
-      url: '',
-      data: objectToSend,
-      success: function (response){
-        if (response === 'OK'){
-          //update display
-          getPets();
-        } else {
-          alert ('error adding item');
+    $(".OwnRegBtn").on("click", function(){
+      $.ajax({
+        type: 'POST',
+        url: '/owners/create',
+        data: {ownerFirst: $(".OwnRegFirstName").val(), ownerLast: $(".OwnRegLastName").val()},
+        success: function (response){
+          if (response === 'OK'){
+            //update display
+            getOwners();
+          } else {
+            alert ('error adding item');
+          }
         }
-      }
-    });
-  }; // end createOwner
-
-getPets();
-});
+      });// end ajax
+    }); //end button click
+});//end doc ready
