@@ -16,15 +16,36 @@ router.get('/', function(req, res){
   pool.connect(function(errorConnectingToDB, db, done) {
     if (errorConnectingToDB) {
       console.log('ERROR CONNECTING TO DATABASE');
-      res.send(500);
+      res.sendStatus(500);
     } else {
       db.query('SELECT * FROM "owners"', function(queryError, result) {
         done();
         if (queryError) {
-          console.log("ERROR MAKING QUERY");
-          res.send(500);
+          console.log("ERROR MAKING GET QUERY");
+          res.sendStatus(500);
         } else {
           res.send(result.rows);
+        }
+      });
+    }
+  });
+});
+
+router.post('/create', function(req, res){
+  pool.connect(function(errorConnectingToDB, db, done) {
+    console.log(req.body);
+    if (errorConnectingToDB) {
+      console.log('ERROR CONNECTING TO DATABASE');
+      res.sendStatus(500);
+    } else {
+      var newOwner = req.body;
+      db.query('INSERT INTO "owners" ("first_name", "last_name") VALUES ($1, $2)', [newOwner.first_name, newOwner.last_name], function(queryError, result) {
+        done();
+        if (queryError) {
+          console.log("ERROR MAKING POST QUERY");
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(200);
         }
       });
     }
