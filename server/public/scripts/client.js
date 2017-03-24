@@ -136,6 +136,9 @@ $(function(){
     //function to create owner
     //POST request for adding owners to the DB
     $(".OwnRegBtn").on("click", function(){
+
+      console.log("register button clicked");
+      console.log($(".OwnRegFirstName").val());
       $.ajax({
         type: 'POST',
         url: '/owners/create',
