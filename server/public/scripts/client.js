@@ -3,7 +3,7 @@ $(function(){
 
   var getPets = function (){
     //insert get function for getting pets and posting them to the DOM
-    console.log("Get Inventory Function");
+    console.log("Get owners Function");
     $.ajax({
       type: 'GET',
       url: '/owners',
