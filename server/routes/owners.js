@@ -43,7 +43,7 @@ router.post('/create', function(req, res){
       res.sendStatus(500);
     } else {
       var newOwner = req.body;
-      db.query('INSERT INTO "owners" ("first_name", "last_name") VALUES ($1, $2)', [newOwner.first_name, newOwner.last_name], function(queryError, result) {
+      db.query('INSERT INTO "owners" ("first_name", "last_name") VALUES ($1, $2)', [newOwner.ownerFirst, newOwner.ownerLast], function(queryError, result) {
         done();
         if (queryError) {
           console.log("ERROR MAKING POST QUERY");
