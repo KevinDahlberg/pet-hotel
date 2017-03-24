@@ -25,3 +25,19 @@ UPDATE "owners" SET ("first_name", "last_name") = ('varF', 'varL') WHERE "id" = 
 
 --Change pet info, where varB is 'owner_id', varC is 'name', varD is 'breed', and varZ is 'color'.
 UPDATE "pets" SET ("owner_id", "name", "breed", "color") = ('varB', 'varC', 'varD', 'varE') WHERE "id" = varINT;
+
+
+
+----These add dummy data:
+
+INSERT INTO "owners" ("first_name", "last_name") VALUES ('YPaul', 'Sussman');
+
+INSERT INTO "pets" ("owner_id", "name", "breed", "color") VALUES (1, 'Cappi', 'Rat Terrier', 'White');
+
+INSERT INTO "pets" ("owner_id", "name", "breed", "color") VALUES (1, 'Pud', 'Pitbull', 'White');
+
+INSERT INTO "owners" ("first_name", "last_name") VALUES ('Zoe', 'Liu');
+
+INSERT INTO "pets" ("owner_id", "name", "breed", "color") VALUES (2, 'Dib', 'Chiweenie', 'Black');
+
+INSERT INTO "pets" ("owner_id", "name", "breed", "color") VALUES (2, 'Lenore', 'Crab', 'Red');
