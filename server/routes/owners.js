@@ -12,6 +12,8 @@ var config = {
 
 var pool = new pg.Pool(config);
 
+// sends back array of objects, where each object is an owner
+// each owner object has the following properties: id, first_name, last_name
 router.get('/', function(req, res){
   pool.connect(function(errorConnectingToDB, db, done) {
     if (errorConnectingToDB) {
@@ -31,6 +33,8 @@ router.get('/', function(req, res){
   });
 });
 
+// creates entry in owners table of database
+// receives owner object with properties: first_name, last_name
 router.post('/create', function(req, res){
   pool.connect(function(errorConnectingToDB, db, done) {
     console.log(req.body);
