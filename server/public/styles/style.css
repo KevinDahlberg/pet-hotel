@@ -1,5 +1,6 @@
 
 }
-td {
+thead {
   background-color: grey;
+  border: solid 3px;
 }
