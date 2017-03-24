@@ -78,7 +78,7 @@ Check-in date
 Checkout date
 There is no mockup for this page, so be creative and do your best!
 
-##check in their pet
+##check in their pet##
  [ ]  Create Owners table
  [ ]  Create html
  [ ]  link Client.js with html
@@ -88,6 +88,6 @@ There is no mockup for this page, so be creative and do your best!
  [ ]  GET request from app.js to Client.js
  [ ]  receive GET request linking Client.js to app.js
  [ ]  display GET on DOM
-##check out their pet
-##update their pet's info
-##remove their pet altogether
+##check out their pet##
+##update their pet's info##
+##remove their pet altogether##
