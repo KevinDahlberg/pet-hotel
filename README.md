@@ -38,4 +38,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Scott Bromander and Chris Black
 
 
-[Assignment Instructions] (https://github.com/KevinDahlberg/pet-hotel/blob/master/instructions.md)
+[Assignment Instructions](https://github.com/KevinDahlberg/pet-hotel/blob/master/instructions.md)
