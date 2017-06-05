@@ -39,6 +39,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Prime Digital Academy
 * Fellow cohort-mates in Chi (especially group members)
 * Scott Bromander and Chris Black
-
-
-[Assignment Instructions](https://github.com/KevinDahlberg/pet-hotel/blob/master/instructions.md)
