@@ -60,7 +60,7 @@ NOTE: Ignore the Visits link you see on the image . This is reserved for Hard mo
 
 * Submitting the Owner Registration form will add a new owner to the owners table.
 
-* The Pets form includes a <select> drop-down list that needs to be populated with data from the owners table. Submitting this form will add a new pet to the pets table. HINT: In addition to displaying the name, make sure to keep track of each owner's id.
+* The Pets form includes a drop-down list that needs to be populated with data from the owners table. Submitting this form will add a new pet to the pets table. HINT: In addition to displaying the name, make sure to keep track of each owner's id.
 
 * The Pets table is ultimately populated with data from the owners, pets, and visits table. (Research LEFT OUTER JOIN if you hit a snag with this.)
 
