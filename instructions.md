@@ -89,15 +89,15 @@ Create a second page for the application: Visits.
 * There is no mockup for this page, so be creative and do your best!
 
 ## check in their pet
- [ ]  Create Owners table
- [ ]  Create html
- [ ]  link Client.js with html
- [ ]  Link client.js with app.js
- [ ]  app.js with database
- [ ]  pg request from app.js to database
- [ ]  GET request from app.js to Client.js
- [ ]  receive GET request linking Client.js to app.js
- [ ]  display GET on DOM
+ * [ ]  Create Owners table
+ * [ ]  Create html
+ * [ ]  link Client.js with html
+ * [ ]  Link client.js with app.js
+ * [ ]  app.js with database
+ * [ ]  pg request from app.js to database
+ * [ ]  GET request from app.js to Client.js
+ * [ ]  receive GET request linking Client.js to app.js
+ * [ ]  display GET on DOM
 ## check out their pet
 ## update their pet's info
 ## remove their pet altogether
