@@ -1,6 +1,9 @@
 # Pet Hotel Group Project
 Group assignment creating a full-stack web application that allows the user to register, check in, and check out pets to a pet hotel.
 
+[Assignment Instructions](https://github.com/KevinDahlberg/pet-hotel/blob/master/instructions.md)
+
+
 ## Getting Started
 
 * Download the code for the project.
